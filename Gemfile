@@ -15,6 +15,12 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 
+# gem 'zucker'
+# gem 'sugar_refinery'
+# gem 'irbtools'
+
+# gem 'hirb'
+
 group :doc do
   gem 'sdoc', require: false
 end
