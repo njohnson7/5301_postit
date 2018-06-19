@@ -15,20 +15,18 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 
-# gem 'zucker'
-# gem 'sugar_refinery'
-# gem 'irbtools'
-
-# gem 'hirb'
-
 group :doc do
   gem 'sdoc', require: false
 end
 
 group :development do
   gem 'quiet_assets'
-  gem 'pry'
   gem 'sqlite3'
+  gem 'pry'
+  gem 'pry-rails'
+  gem 'coolline'
+  gem 'pry-coolline'
+  gem 'pry-theme'
   gem 'awesome_print'
   gem 'shog'
 end

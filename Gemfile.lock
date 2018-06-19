@@ -31,7 +31,7 @@ GEM
     bootstrap-sass (2.3.2.0)
       sass (~> 3.2)
     builder (3.1.4)
-    coderay (1.0.9)
+    coderay (1.1.2)
     coffee-rails (4.0.0)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0.beta, < 5.0)
@@ -40,6 +40,8 @@ GEM
       execjs
     coffee-script-source (1.6.2)
     colorize (0.8.1)
+    coolline (0.5.0)
+      unicode_utils (~> 1.4)
     erubis (2.7.0)
     execjs (1.4.0)
       multi_json (~> 1.0)
@@ -55,16 +57,21 @@ GEM
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
-    method_source (0.8.1)
+    method_source (0.9.0)
     mime-types (1.23)
     minitest (4.7.5)
     multi_json (1.7.7)
     pg (0.15.1)
     polyglot (0.3.3)
-    pry (0.9.12.2)
-      coderay (~> 1.0.5)
-      method_source (~> 0.8)
-      slop (~> 3.4)
+    pry (0.11.3)
+      coderay (~> 1.1.0)
+      method_source (~> 0.9.0)
+    pry-coolline (0.2.5)
+      coolline (~> 0.5)
+    pry-rails (0.3.6)
+      pry (>= 0.10.4)
+    pry-theme (1.2.0)
+      coderay (~> 1.1)
     quiet_assets (1.0.2)
       railties (>= 3.1, < 5.0)
     rack (1.5.2)
@@ -102,7 +109,6 @@ GEM
     shog (0.2.1)
       colorize (>= 0.8)
       rails (>= 4)
-    slop (3.4.5)
     sprockets (2.10.0)
       hike (~> 1.2)
       multi_json (~> 1.0)
@@ -126,6 +132,7 @@ GEM
     uglifier (2.1.1)
       execjs (>= 0.3.0)
       multi_json (~> 1.0, >= 1.0.2)
+    unicode_utils (1.4.0)
 
 PLATFORMS
   ruby
@@ -134,10 +141,14 @@ DEPENDENCIES
   awesome_print
   bootstrap-sass (~> 2.3.2.0)
   coffee-rails (~> 4.0.0)
+  coolline
   jbuilder (~> 1.2)
   jquery-rails
   pg
   pry
+  pry-coolline
+  pry-rails
+  pry-theme
   quiet_assets
   rails (= 4.0.0)
   rails_12factor
