@@ -29,6 +29,7 @@ group :development do
   gem 'pry-theme'
   gem 'awesome_print'
   gem 'shog'
+  gem 'niceql'
 end
 
 group :production do
