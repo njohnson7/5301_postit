@@ -1,4 +1,3 @@
-
 <% if @post.errors.any? %>
   <div class='row'>
     <div class='alert alert-error span8'>
@@ -26,6 +25,6 @@
       <%= f.label     :description %>
       <%= f.text_area :description, rows: 5 %>
     </div>
-      <%= f.submit 'Create Post', class: 'btn btn-primary' %>
+      <%= f.submit "#{button_text} Post", class: 'btn btn-primary' %>
   <% end %>
 </div>
