@@ -4,7 +4,7 @@
   <div class='row'>
     <div class='span8 well'>
       <%= render post.categories %>
-      <h4><%= link_to post.title, post.url %></h4>
+      <h4><%= link_to post.title, fix_url(post.url) %></h4>
       <p><%= post.description %></p>
       <p>
         <span class='quiet'>posted by <%= post.creator ? post.creator.username : 'Anonymous' %></span>

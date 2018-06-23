@@ -8,9 +8,12 @@
   <%= @post.description %>
 </p>
 
-<%= link_to 'Back to all posts', posts_path %>
+<%= link_to 'go back to all posts', posts_path %>
 
 <h5>Create a comment:</h5>
+
+<%= render 'shared/errors', obj: @comment %>
+
 <%= form_for [@post, @comment] do |f| %>
   <%= f.text_area :body %>
   <br>
