@@ -1,15 +1,4 @@
-<% if @post.errors.any? %>
-  <div class='row'>
-    <div class='alert alert-error span8'>
-      <h5>Please fix the following errors:</h5>
-      <ul>
-        <% @post.errors.full_messages.each do |msg| %>
-          <li class='error'><%= msg %></li>
-        <% end %>
-      </ul>
-    </div>
-  </div>
-<% end %>
+<%= render 'shared/form_errors', model: @post %>
 
 <div class='well'>
   <%= form_for @post do |f| %>
@@ -25,6 +14,6 @@
       <%= f.label     :description %>
       <%= f.text_area :description, rows: 5 %>
     </div>
-      <%= f.submit "#{button_text} Post", class: 'btn btn-primary' %>
+    <%= f.submit "#{@post.new_record? ? 'Create' : 'Update'} Post", class: 'btn btn-primary' %>
   <% end %>
 </div>

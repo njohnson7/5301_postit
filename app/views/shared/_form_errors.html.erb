@@ -1,0 +1,12 @@
+<% if model.errors.any? %>
+  <div class='row'>
+    <div class='alert alert-error span8'>
+      <h5>Please fix the following errors:</h5>
+      <ul>
+        <% model.errors.full_messages.each do |msg| %>
+          <li class='error'><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+<% end %>
