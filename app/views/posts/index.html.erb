@@ -7,11 +7,10 @@
       <h4><%= link_to post.title, post.url %></h4>
       <p><%= post.description %></p>
       <p>
-        <span class='quiet'>posted by <%= post.creator.username %></span>
+        <span class='quiet'>posted by <%= post.creator ? post.creator.username : 'Anonymous' %></span>
         <small>at <%= post.created_at %></small>
-        <span>
-          <%= link_to("#{post.comments.size} comments", post_path(post)) %>
-        </span>
+        <span><%= link_to("#{post.comments.size} comments", post_path(post)) %></span>
+        <span><%= link_to("Edit", edit_post_path(post)) %></span>
       </p>
     </div>
   </div>
