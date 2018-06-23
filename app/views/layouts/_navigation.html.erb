@@ -1,15 +1,18 @@
-<ul class="nav">
+<ul class='nav'>
   <li>
-    <%= link_to "Postit!", root_path, :class => 'brand' %>
+    <%= link_to 'Postit!', root_path, class: 'brand' %>
   </li>
   <li>
     <%= link_to 'link', '' %>
   </li>
+  <li>
+    <%= link_to 'Categories', categories_path %>
+  </li>
 </ul>
 
 <div class='nav_item'>
-  <%= link_to 'New post', new_post_path, class: 'btn btn-success btn-small' %>
+  <%= link_to 'New category', new_category_path, class: 'btn btn-small' %>
 </div>
 <div class='nav_item'>
-  <%= link_to 'New category', new_category_path, class: 'btn btn-success btn-small' %>
+  <%= link_to 'New post', new_post_path, class: 'btn btn-success btn-small' %>
 </div>
