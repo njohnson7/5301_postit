@@ -1,11 +1,6 @@
 class CategoriesController < ApplicationController
-  def index
-    @categories = Category.all
-  end
-
   def show
     @category = Category.find params[:id]
-    @posts    = Post.select { |post| post.categories.include?(@category) }
   end
 
   def new
