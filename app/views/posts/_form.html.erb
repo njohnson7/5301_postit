@@ -1,17 +1,31 @@
+
 <% if @post.errors.any? %>
-  <% @post.errors.full_messages.each do |msg| %>
-    <p class='error'><%= msg %></p>
+  <div class='row'>
+    <div class='alert alert-error span8'>
+      <h5>Please fix the following errors:</h5>
+      <ul>
+        <% @post.errors.full_messages.each do |msg| %>
+          <li class='error'><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+<% end %>
+
+<div class='well'>
+  <%= form_for @post do |f| %>
+    <div class='control-group'>
+      <%= f.label      :title %>
+      <%= f.text_field :title %>
+    </div>
+    <div class='control-group'>
+      <%= f.label      :url %>
+      <%= f.text_field :url %>
+    </div>
+    <div class='control-group'>
+      <%= f.label     :description %>
+      <%= f.text_area :description, rows: 5 %>
+    </div>
+      <%= f.submit 'Create Post', class: 'btn btn-primary' %>
   <% end %>
-<% end %>
-
-<%= form_for @post do |f| %>
-  <%= f.label      :title %>
-  <%= f.text_field :title %>
-  <br>
-
-  <%= f.label      :url %>
-  <%= f.text_field :url %>
-  <br>
-
-  <%= f.submit %>
-<% end %>
+</div>
