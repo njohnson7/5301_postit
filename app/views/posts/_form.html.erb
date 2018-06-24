@@ -16,8 +16,8 @@
     </div>
     <div class='control-group'>
       <%= f.label :categories %>
-      <%= f.collection_check_boxes @post, post: :category_ids, Category.all, :name do %>
-        <p>42</p>
+      <%= f.collection_check_boxes :category_ids, Category.all, :id, :name do |cb| %>
+        <%= cb.label(class: 'checkbox inline') { cb.check_box(class: 'checkbox') + cb.text } %>
       <% end %>
     </div>
     <%= f.submit "#{@post.new_record? ? 'Create' : 'Update'} Post", class: 'btn btn-primary' %>

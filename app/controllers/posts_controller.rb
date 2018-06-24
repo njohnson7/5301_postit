@@ -29,6 +29,8 @@ class PostsController < ApplicationController
   end
 
   def update
+      # ;require'pry';binding.pry;
+
     if @post.update post_params
       flash[:notice] = 'Post has been updated'
       redirect_to posts_path
@@ -40,7 +42,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :url, :description)
+    params.require(:post).permit(:title, :url, :description, category_ids: [])
   end
 
   def set_post
