@@ -1,10 +1,12 @@
 class CommentsController < ApplicationController
   def create
     @post    = Post.find params[:post_id]
-    @comment = Comment.new(params.require(:comment).permit(:body).merge(post: @post))
+    @comment = @post.comments.build(params.require(:commnt).permit(:body))
+    @comment.creator = User.first  # TODO: fix after authentication
+
     if @comment.save
-      flash[:notice] = 'Comment has been created'
-      redirect_to post_path(@post.id)
+      flash[:notice] = 'Your comment was added.'
+      redirect_to post_path(@post)
     else
       render 'posts/show'
     end
