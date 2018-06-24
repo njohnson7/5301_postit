@@ -1,4 +1,4 @@
-if ENV['RAILS_ENV'] != 'development' && Niceql
+if defined? Niceql
   Niceql.configure do |c|
     # You can adjust pg_adapter in production at your own risk!
     # If you need it in production use exec_niceql
