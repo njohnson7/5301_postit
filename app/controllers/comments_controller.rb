@@ -1,7 +1,7 @@
 class CommentsController < ApplicationController
   def create
     @post    = Post.find params[:post_id]
-    @comment = @post.comments.build(params.require(:commnt).permit(:body))
+    @comment = @post.comments.build(params.require(:comment).permit(:body))
     @comment.creator = User.first  # TODO: fix after authentication
 
     if @comment.save
