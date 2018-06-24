@@ -12,4 +12,17 @@
   <%= @post.description %>
 </p>
 
-<%= link_to 'Back to all posts', posts_path %>
+
+<%= render 'shared/errors', obj: @comment %>
+
+<%= form_for [@post, @comment] do |f| %>
+  <div class='control-group'>
+    <%= f.label :body, 'Leave a comment' %>
+    <%= f.text_area :body, class: 'span4', rows: 3 %>
+  </div>
+  <%= f.submit %>
+<% end %>
+
+<% @post.comments.each do |comment| %>
+  <div class='well span8'><%= comment.body %></div>
+<% end %>
