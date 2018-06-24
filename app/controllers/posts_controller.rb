@@ -29,8 +29,6 @@ class PostsController < ApplicationController
   end
 
   def update
-      # ;require'pry';binding.pry;
-
     if @post.update post_params
       flash[:notice] = 'Post has been updated'
       redirect_to posts_path

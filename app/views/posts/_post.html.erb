@@ -5,7 +5,8 @@
     <p><%= post.description %></p>
     <p>
       <span class='quiet'>posted by</span> <%= post.creator.username %>
-      <small>at <%= post.created_at %></small>
+      <small>at <%= format_time post.created_at %></small>
+      <br>
       <span><%= link_to("#{post.comments.size} comments", post_path(post)) %></span>
       <span><%= link_to("Edit", edit_post_path(post)) %></span>
     </p>
