@@ -26,10 +26,11 @@
 <h5>Comments:</h5>
 
 <% @post.comments.each do |comment| %>
+  <% next unless comment.created_at %>
   <div class='well span8'>
-   <em>"<%= comment.body %>"</em>
-   <br>
-   <span class='quiet'>by</span> <%= comment.creator.username %>
-   <small>at <%= format_time comment.created_at %></small>
+    <em>"<%= comment.body %>"</em>
+    <br>
+    <span class='quiet'>by</span> <%= comment.creator.username %>
+    <small>at <%= format_time comment.created_at %></small>
   </div>
 <% end %>
