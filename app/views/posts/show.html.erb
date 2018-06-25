@@ -25,7 +25,7 @@
 
 <h5>Comments:</h5>
 
-<% @post.comments.each do |comment| %>
+<% @post.reload.comments.each do |comment| %>
   <div class='well span8'>
    <em>"<%= comment.body %>"</em>
    <br>

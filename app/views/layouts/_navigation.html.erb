@@ -2,9 +2,20 @@
   <li>
     <%= link_to 'Postit!', root_path, class: 'brand' %>
   </li>
-  <li>
-    <%= link_to 'link', '' %>
-  </li>
+
+  <% if logged_in? %>
+    <li>Hi <%= current_user.username %></li>
+    <li>
+      <%= link_to 'Log Out', logout_path %>
+    </li>
+  <% else %>
+    <li>
+      <%= link_to 'Register', register_path %>
+    </li>
+    <li>
+      <%= link_to 'Log In', login_path %>
+    </li>
+  <% end %>
 </ul>
 
 <div class='btn-group nav_item'>
