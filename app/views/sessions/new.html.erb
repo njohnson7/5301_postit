@@ -7,8 +7,8 @@
       <%= text_field_tag :username, params[:username] || '' %>
     </div>
     <div class='control-group'>
-      <%= label_tag      :password %>
-      <%= text_field_tag :password, params[:password] || '' %>
+      <%= label_tag          :password %>
+      <%= password_field_tag :password, params[:password] || '' %>
     </div>
     <%= submit_tag 'Login', class: 'btn btn-primary' %>
   <% end %>
