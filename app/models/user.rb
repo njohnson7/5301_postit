@@ -3,4 +3,7 @@ class User < ActiveRecord::Base
   has_many :comments
 
   has_secure_password validations: false
+
+  validates :username, presence: true
+  validates :password, presence: true
 end

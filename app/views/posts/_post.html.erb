@@ -8,7 +8,11 @@
       <small>at <%= format_time post.created_at %></small>
       <br>
       <span><%= link_to("#{post.comments.size} comments", post_path(post)) %></span>
-      <span><%= link_to("Edit", edit_post_path(post)) %></span>
+
+      <% if logged_in? %>
+        <span><%= link_to("[edit]", edit_post_path(post)) %></span>
+      <% end %>
+
     </p>
   </div>
 </div>
