@@ -20,5 +20,5 @@
 </ul>
 
 <div>
-  <%= render params[:tab] ? @user.comments : @user.posts %>
+  <%= render params[:tab] ? sort_by_vote(@user.comments) : sort_by_vote(@user.posts) %>
 </div>

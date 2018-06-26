@@ -10,4 +10,8 @@ module ApplicationHelper
   def user_page?
     params[:controller] == 'users'
   end
+
+  def sort_by_vote(voteables)
+    voteables.sort_by { |voteable| -voteable.total_votes }
+  end
 end
