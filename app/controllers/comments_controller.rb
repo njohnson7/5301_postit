@@ -20,7 +20,7 @@ class CommentsController < ApplicationController
     if v.save
       flash[:notice] = 'Your vote has been counted'
     else
-      flash[:error] = 'There was a problem with your vote'
+      flash[:error] = 'Sorry, you can only vote once per item'
     end
 
     redirect_to :back
