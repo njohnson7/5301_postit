@@ -1,0 +1,39 @@
+<%= render 'shared/content_title', title: "Profile: #{@user.username}" %>
+
+<div class='well'>
+  <dl class='dl-horizontal'>
+    <dt>Username:</dt>
+    <dd><%= @user.username %></dd>
+    <dt>Time Zone:</dt>
+    <dd><%= @user.timezone %></dd>
+  </dl>
+</div>
+
+<h5><%= @user.username %>'s Activity</h5>
+<ul class='nav nav-tabs'>
+  <li class='active'><%= link_to "Posts (#{@user.posts.size})" %></li>
+  <li><%= link_to "Comments (#{@user.comments.size})" %></li>
+</ul>
+
+<div id='posts'>
+  <%= render @user.posts %>
+</div>
+<div id='comments'>
+  <%= render @user.comments %>
+</div>
+
+<script>
+  $('#comments').hide()
+
+  var $tabs = $('.nav-tabs li')
+  $tabs.click(e => {
+    e.preventDefault()
+    $tabs.removeClass('active')
+    var $tab = $(e.currentTarget)
+    $tab.addClass('active')
+    var $div = $('#' + $(e.target).text().split(' ')[0].toLowerCase())
+    $('#posts').hide()
+    $('#comments').hide()
+    $div.show()
+  })
+</script>
