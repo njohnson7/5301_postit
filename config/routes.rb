@@ -6,17 +6,15 @@ PostitTemplate::Application.routes.draw do
   post '/login',    to: 'sessions#create'
   get  '/logout',   to: 'sessions#destroy'
 
-  post '/comments/:id/vote', to: 'comments#vote', as: 'vote_comment'
-
   resources :posts, except: :destroy do
-    resources :comments, only: :create
+    resources :comments, only: :create do
+      member do
+        post 'vote'
+      end
+    end
 
     member do
       post 'vote'
-    end
-
-    collection do
-      post 'omg'
     end
   end
 
