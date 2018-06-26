@@ -4,7 +4,8 @@
     <h4><%= link_to post.title, fix_url(post.url) %></h4>
     <p><%= post.description %></p>
     <p>
-      <span class='quiet'>posted by</span> <%= post.creator.username %>
+      <span class='quiet'>posted by</span>
+      <%= link_to post.creator.username, user_path(post.creator) %>
       <small>at <%= format_time post.created_at %></small>
       <br>
       <span><%= link_to("#{post.comments.size} comments", post_path(post)) %></span>
