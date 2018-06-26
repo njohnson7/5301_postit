@@ -2,23 +2,6 @@
   <li>
     <%= link_to 'Postit!', root_path, class: 'brand' %>
   </li>
-
-  <% if logged_in? %>
-    <li>
-      <%= link_to 'Log out', logout_path %>
-    </li>
-    <li>
-      <%= current_user.username %>
-    </li>
-  <% else %>
-    <li>
-      <%= link_to 'Register', register_path %>
-    </li>
-    <li>
-      <%= link_to 'Log in', login_path %>
-    </li>
-  <% end %>
-
 </ul>
 
 <div class='btn-group nav_item'>
@@ -39,12 +22,21 @@
         <% end %>
       </li>
     <% end %>
-
   </ul>
 </div>
 
 <% if logged_in? %>
   <div class='nav_item'>
     <%= link_to 'New post', new_post_path, class: 'btn btn-success btn-small' %>
+  </div>
+  <div class='nav_item'>
+    <%= link_to 'Log out', logout_path, class: 'btn btn-small' %>
+  </div>
+<% else %>
+  <div class='nav_item'>
+    <%= link_to 'Register', register_path, class: 'btn btn-success btn-small' %>
+  </div>
+  <div class='nav_item'>
+    <%= link_to 'Log in', login_path, class: 'btn btn-small' %>
   </div>
 <% end %>

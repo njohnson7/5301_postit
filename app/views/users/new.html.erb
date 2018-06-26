@@ -1,9 +1,9 @@
 <%= render 'shared/content_title', title: 'Register' %>
 
-<%= render 'shared/errors', obj: @user %>
 
 <div class='well'>
   <%= form_for @user do |f| %>
+    <%= render 'shared/errors', obj: @user %>
     <div class='control-group'>
       <%= f.label      :username %>
       <%= f.text_field :username %>
@@ -12,6 +12,6 @@
       <%= f.label          :password %>
       <%= f.password_field :password %>
     </div>
-    <%= f.submit 'Register', class: 'btn btn-primary' %>
+    <%= f.submit 'Register', class: 'btn btn-success' %>
   <% end %>
 </div>
