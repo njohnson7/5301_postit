@@ -8,7 +8,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'bootstrap-sass', '~> 2.3.2.0'
 gem 'bcrypt-ruby', '~> 3.0.0'
-gem 'voteable_njohnson7', '= 0.0.2', path: '/home/one/launchschool/5301/lesson1/postit/voteable-gem'
+gem 'voteable_njohnson7', '= 0.0.2', path: File.expand_path('../voteable-gem', __FILE__)
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
