@@ -47,15 +47,11 @@ class PostsController < ApplicationController
     end
 
     respond_to do |format|
-      format.html do
-
-        redirect_to :back
-      end
-
+      format.html { redirect_to :back }
       format.js
     end
-
   end
+
 
   private
 
@@ -64,6 +60,6 @@ class PostsController < ApplicationController
   end
 
   def set_post
-    @post = Post.find params[:id]
+    @post = Post.find_by slug: params[:id]
   end
 end
