@@ -4,9 +4,7 @@ class PostsController < ApplicationController
   before_action :require_admin_or_same_user, only:   [:edit, :update]
 
   def index
-    # @posts = Post.all.sort_by { |post| -post.total_votes }
-    @posts = Post.limit(Post::PER_PAGE).offset(params[:offset])
-    @pages = Post.all.size.fdiv(Post::PER_PAGE).ceil
+    @posts = Post.all.sort_by { |post| -post.total_votes }
 
     respond_to do |format|
       format.html

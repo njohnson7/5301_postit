@@ -1,0 +1,12 @@
+<% @pages.times do |n| %>
+  <% if (!params[:offset] && n == 0) || params[:offset].to_s == (n * Post::PER_PAGE).to_s  %>
+    <%= "#{n == 0 ? '' : '|'} Page #{n + 1}" %>
+  <% else %>
+    <%= link_to "#{n == 0 ? '' : '|'} Page #{n + 1}", posts_path(offset: n * Post::PER_PAGE) %>
+  <% end %>
+<% end %>
+
+
+<!--     # @posts = Post.limit(Post::PER_PAGE).offset(params[:offset])
+    # @pages = Post.all.size.fdiv(Post::PER_PAGE).ceil
+ -->
