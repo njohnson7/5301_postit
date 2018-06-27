@@ -1,6 +1,6 @@
 <% if logged_in? %>
   <p class='pull-right'>
-    [<%= link_to 'edit this post', edit_post_path( @post) %>]
+    [<%= link_to 'edit this post', edit_post_path(@post) %>]
   </p>
 <% end %>
 
@@ -28,4 +28,4 @@
 
 <h5>Comments:</h5>
 
-<%= render sort_by_vote(@post.comments) %>
+<%= render sort_by_vote(@post.comments.reload) %>
