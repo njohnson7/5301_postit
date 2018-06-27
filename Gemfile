@@ -9,6 +9,8 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'bootstrap-sass', '~> 2.3.2.0'
 gem 'bcrypt-ruby', '~> 3.0.0'
 gem 'voteable_njohnson7', '= 0.0.2', path: File.expand_path('../voteable-gem', __FILE__)
+gem 'twilio-ruby'
+gem 'faraday', '= 0.12.2'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
