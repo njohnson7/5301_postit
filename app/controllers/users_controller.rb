@@ -25,7 +25,6 @@ class UsersController < ApplicationController
   end
 
   def update
-  ;require'pry';binding.pry;
     if @user.update(user_params)
       flash[:notice]    = 'Your profile was updated.'
       session[:user_id] = @user.slug
