@@ -1,21 +1,24 @@
-module Voteable
-  extend ActiveSupport::Concern
+# module Voteable
+  # extend ActiveSupport::Concern
 
-  included do
-    has_many :votes, as: :voteable
-  end
+  # included do
+  #   has_many :votes, as: :voteable
+  # end
 
-  def total_votes
-    up_votes - down_votes
-  end
+  # def total_votes
+  #   up_votes - down_votes
+  # end
 
-  def up_votes
-     self.votes.where(vote: true).size
-  end
+  # def up_votes
+  #    self.votes.where(vote: true).size
+  # end
 
-  def down_votes
-    self.votes.where(vote: false).size
-  end
+  # def down_votes
+  #   self.votes.where(vote: false).size
+  # end
+
+
+
 
   # def self.included base
   #   base.send   :include, InstanceMethods
@@ -45,4 +48,4 @@ module Voteable
   #     p 'this is a CLASS method'
   #   end
   # end
-end
+# end
