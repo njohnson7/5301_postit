@@ -25,7 +25,7 @@
       <br>
       <span><%= link_to("#{post.comments.size} comments", post_path(post)) %></span>
 
-      <% if logged_in? %>
+      <% if logged_in? && (admin? || same_user?(post.creator)) %>
         <span><%= link_to("[edit]", edit_post_path(post)) %></span>
       <% end %>
     </p>

@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
-  helper_method :current_user, :logged_in?, :admin?
+  helper_method :current_user, :logged_in?, :admin?, :same_user?
 
   def current_user
     @current_user ||= session && session[:user_id] && User.find_by(slug: session[:user_id])
@@ -14,22 +14,33 @@ class ApplicationController < ActionController::Base
   end
 
   def admin?
-    logged_in? && current_user.role == 'admin'
+    logged_in? && current_user.admin?
+  end
+
+  def same_user?(user = @user)
+    logged_in? && current_user == user
   end
 
   private
 
+  def access_denied(msg = "You're not allowed to do that.")
+    flash[:error] = msg
+    redirect_to root_path
+  end
+
   def require_user
-    unless logged_in?
-      flash[:error] = 'You must be logged in to do that'
-      redirect_to root_path
-    end
+    access_denied('You must be logged in to do that.') unless logged_in?
   end
 
   def require_admin
-    unless admin?
-      flash[:error] = 'You must be an admin to do that'
-      redirect_to root_path
-    end
+    access_denied unless admin?
+  end
+
+  def require_same_user(user = @user)
+    access_denied unless same_user?(user)
+  end
+
+  def require_admin_or_same_user(user = @user)
+    access_denied unless admin? || same_user?(user)
   end
 end
