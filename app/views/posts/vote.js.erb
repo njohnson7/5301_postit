@@ -1,1 +1,5 @@
-$('#post_<%= @post.id %>_votes').text('<%= @post.total_votes %> votes')
+<% if @vote.valid? %>
+  $('#post_<%= @post.id %>_votes').text('<%= @post.total_votes %> votes')
+<% else %>
+  alert('You can only vote on a post once')
+<% end %>
