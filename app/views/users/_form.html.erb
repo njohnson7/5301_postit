@@ -10,8 +10,8 @@
       <%= f.password_field :password %>
     </div>
     <div class='control-group'>
-      <%= f.label      :timezone %>
-      <%= f.text_field :timezone %>
+      <%= f.label      :time_zone %>
+      <%= f.text_field :time_zone %>
     </div>
     <%= f.submit @user.new_record? ? 'Register' : 'Update Profile', class: 'btn btn-success' %>
   <% end %>
