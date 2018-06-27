@@ -1,6 +1,4 @@
 class Post < ActiveRecord::Base
-  SLUG_ATTR = :title
-
   include Voteable
   include Sluggable
 
@@ -12,4 +10,6 @@ class Post < ActiveRecord::Base
   validates :title,       presence: true, length: { minimum: 3 }
   validates :url,         presence: true  #, uniqueness: true
   validates :description, presence: true
+
+  sluggable_column :title
 end

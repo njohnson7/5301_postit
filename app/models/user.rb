@@ -1,6 +1,4 @@
 class User < ActiveRecord::Base
-  SLUG_ATTR = :username
-
   include Sluggable
 
   has_many :posts
@@ -11,4 +9,6 @@ class User < ActiveRecord::Base
 
   validates :username, presence: true, uniqueness: true
   validates :password, presence: true, on: :create
+
+  sluggable_column :username
 end
