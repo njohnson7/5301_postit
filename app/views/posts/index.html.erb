@@ -1,3 +1,11 @@
 <%= render 'shared/content_title', title: 'All Posts' %>
 
 <%= render partial: 'post', collection: @posts  %>
+
+<% @pages.times do |n| %>
+  <% if (!params[:offset] && n == 0) || params[:offset].to_s == (n * Post::PER_PAGE).to_s  %>
+    <%= "#{n == 0 ? '' : '|'} Page #{n + 1}" %>
+  <% else %>
+    <%= link_to "#{n == 0 ? '' : '|'} Page #{n + 1}", posts_path(offset: n * Post::PER_PAGE) %>
+  <% end %>
+<% end %>
