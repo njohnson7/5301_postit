@@ -4,6 +4,9 @@ module ApplicationHelper
   end
 
   def format_time time
+    if logged_in?
+      time = time.in_time_zone current_user.time_zone
+    end
     time.strftime "%m/%d/%Y %l:%M%P %Z"
   end
 
