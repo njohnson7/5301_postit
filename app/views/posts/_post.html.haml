@@ -1,0 +1,26 @@
+.row
+  .span0.well.text-center
+    - if logged_in?
+      = link_to vote_post_path(post, vote: true), method: 'post', remote: true do
+        %i.icon-arrow-up
+      %br/
+    %span{id: "post_#{post.to_param}_votes"}
+      = post.total_votes
+      votes
+    - if logged_in?
+      %br/
+      = link_to vote_post_path(post, vote: false), method: 'post', remote: true do
+        %i.icon-arrow-down
+  .span8.well
+    = render post.categories
+    %h4= link_to post.title, fix_url(post.url)
+    %p= post.description
+    %p
+      %span.quiet posted by
+      = link_to post.creator.username, user_path(post.creator)
+      %small
+        at #{format_time post.created_at}
+      %br/
+      %span= link_to("#{post.comments.size} comments", post_path(post))
+      - if logged_in? && (admin? || same_user?(post.creator))
+        %span= link_to("[edit]", edit_post_path(post))
